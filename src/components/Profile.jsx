@@ -12,30 +12,36 @@ const Profile = ({ data, setData, errors }) => {
   };
 
   return (
-    <div>
-      <div>
-        <label>Name : </label>
+    <div className="px-2">
+      <div className="mb-3">
+        <label className="form-label">Name</label>
         <input
+          className="form-control"
           type="text"
+          placeholder="Your Name"
           value={name}
           onChange={(e) => handleDataChange(e, "name")}
         />
         {errors.name && <span className="error">{errors.name}</span>}
       </div>
 
-      <div>
-        <label>Age : </label>
+      <div className="mb-3">
+        <label className="form-label">Age</label>
         <input
-          type="number"
+          className="form-control"
+          type="text"
+          placeholder="Your Age"
           value={age}
           onChange={(e) => handleDataChange(e, "age")}
         />
         {errors.age && <span className="error">{errors.age}</span>}
       </div>
       <div>
-        <label>Email : </label>
+        <label className="form-label">Email</label>
         <input
+          className="form-control mb-2"
           type="text"
+          placeholder="Your Email"
           value={email}
           onChange={(e) => handleDataChange(e, "email")}
         />

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Interest = ({ data, setData, errors}) => {
+const Interest = ({ data, setData, errors }) => {
   const { interests } = data;
 
   const handleDataChange = (e) => {
@@ -8,14 +8,17 @@ const Interest = ({ data, setData, errors}) => {
       ...prevState,
       interests: e.target.checked
         ? [...prevState.interests, e.target.name]
-        : prevState.interests.filter((i) => i !== e.target.name)
+        : prevState.interests.filter((i) => i !== e.target.name),
     }));
   };
 
   return (
-    <div>
+    <div className="px-2">
       <div>
-        <label>
+        <label>Select Interest</label>
+      </div>
+      <div>
+        <label className="d-flex gap-1">
           <input
             type="checkbox"
             name="coding"
@@ -26,7 +29,7 @@ const Interest = ({ data, setData, errors}) => {
         </label>
       </div>
       <div>
-        <label>
+        <label className="d-flex gap-1">
           <input
             type="checkbox"
             name="music"
@@ -37,14 +40,14 @@ const Interest = ({ data, setData, errors}) => {
         </label>
       </div>
       <div>
-        <label>
+        <label className="d-flex gap-1">
           <input
             type="checkbox"
-            name="javascript"
-            checked={interests.includes("javascript")}
+            name="cooking"
+            checked={interests.includes("cooking")}
             onChange={handleDataChange}
           />
-          JavaScript
+          Cooking
         </label>
       </div>
       {errors.interests && <span className="error">{errors.interests}</span>}

@@ -3,7 +3,7 @@ import TabForm from './components/TabForm'
 
 function App() {
   return (
-    <div>
+    <div className='container card py-2 mt-3 main-container'>
       <TabForm />
     </div>
   )

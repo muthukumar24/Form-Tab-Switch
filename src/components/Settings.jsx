@@ -11,9 +11,12 @@ const Settings = ({data, setData}) => {
   }
 
   return (
-    <div>
+    <div className='px-2'>
       <div>
-        <label>
+        <label>Select Theme</label>
+      </div>
+      <div> 
+        <label className="d-flex gap-1">
           <input
             type="radio"
             name="dark"
@@ -24,7 +27,7 @@ const Settings = ({data, setData}) => {
         </label>
       </div>
       <div>
-        <label>
+        <label className="d-flex gap-1">
           <input
             type="radio"
             name="light"

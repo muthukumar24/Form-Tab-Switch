@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Profile from "./Profile";
 import Interest from "./Interest";
 import Settings from "./Settings";
 
 const TabForm = () => {
   const [data, setData] = useState({
-    name: "Muthu",
-    age: 25,
-    email: "muthu@gmail.com",
-    interests: ["coding", "music"],
+    name: "",
+    age: "",
+    email: "",
+    interests: [],
     theme: "dark",
   });
 
@@ -73,35 +73,35 @@ const TabForm = () => {
   };
 
   const handleSubmitClick = () => {
-    alert("Make API Call");
-    console.log(data)
+    alert('Response Saved, Thanks!!');
+    // console.log(data)
   };
 
   return (
     <div>
-      <div className="heading-container">
+      <div className="heading-container my-2">
         {tabs.map((t, index) => (
-          <div
+          <button
             key={index}
-            className="heading"
+            className = {`${activeTab == index  ? 'active-btn' : 'heading-btn' }`}
             onClick={() => tabs[activeTab].validate() && setActiveTab(index)}
           >
             {t.name}
-          </div>
+          </button>
         ))}
       </div>
-      <div className="tab-body">
+      <div className="tab-body card w-50">
         <ActiveTabComponent data={data} setData={setData} errors={errors} />
       </div>
-      <div>
+      <div className="d-flex gap-1 mt-2 mb-2">
         {activeTab > 0 && (
-          <button onClick={handlePreviousClick}>Previous</button>
+          <button onClick={handlePreviousClick} className="btn btn-primary">Previous</button>
         )}
         {activeTab < tabs.length - 1 && (
-          <button onClick={handleNextClick}>Next</button>
+          <button onClick={handleNextClick} className="btn btn-primary">Next</button>
         )}
         {activeTab === tabs.length - 1 && (
-          <button onClick={handleSubmitClick}>Submit</button>
+          <button onClick={handleSubmitClick} className="btn btn-primary">Submit</button>
         )}
       </div>
     </div>
